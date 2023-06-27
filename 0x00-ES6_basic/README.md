@@ -92,13 +92,88 @@ Configuration files
 
 Click to show/hide file contents
 
+```
+{
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint",
+    "check-lint": "lint [0-9]*.js",
+    "dev": "npx babel-node",
+    "test": "jest",
+    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.8.0",
+    "@babel/preset-env": "^7.6.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0"
+  }
+}
+```
+
 ### `babel.config.js`
 
 Click to show/hide file contents
 
+```
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+  ],
+};
+```
+
 ### `.eslintrc.js`
 
 Click to show/hide file contents
+
+```
+module.exports = {
+  env: {
+    browser: false,
+    es6: true,
+    jest: true,
+  },
+  extends: [
+    'airbnb-base',
+    'plugin:jest/all',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: ['jest'],
+  rules: {
+    'no-console': 'off',
+    'no-shadow': 'off',
+    'no-restricted-syntax': [
+      'error',
+      'LabeledStatement',
+      'WithStatement',
+    ],
+  },
+  overrides:[
+    {
+      files: ['*.js'],
+      excludedFiles: 'babel.config.js',
+    }
+  ]
+};
+```
 
 ### Finally
 
@@ -111,7 +186,7 @@ Tasks
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Modify
 
@@ -159,6 +234,42 @@ bob@dylan:~$
 - File: `0-constants.js`
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+
+Solution
+
+```
+export function taskFirst() {
+  const task = 'I prefer const when I can.';
+  return task;
+}
+
+export function getLast() {
+  return ' is okay';
+}
+
+export function taskNext() {
+  let combination = 'But sometimes let';
+  combination += getLast();
+
+  return combination;
+}
+```
+
+```
+The given code demonstrates the usage of const and let keywords to declare variables in JavaScript. Here's a breakdown of the code:
+
+The code imports the functions taskFirst and taskNext from a module called './0-constants.js'.
+
+The console.log() statement prints the result of calling taskFirst() and taskNext() to the console. The result will be a combination of the strings returned by these functions.
+
+The taskFirst() function is declared using the export keyword, indicating that it can be imported and used in other modules. Inside this function, a constant variable named task is declared using the const keyword and assigned the value 'I prefer const when I can.'. The function then returns the value of task.
+
+The getLast() function is also declared using the export keyword. It simply returns the string ' is okay'.
+
+The taskNext() function is declared using the export keyword as well. Inside this function, a variable named combination is declared using the let keyword. Initially, it is assigned the value 'But sometimes let'. The function then appends the result of calling getLast() to combination using the += operator. Finally, the function returns the value of combination.
+
+Overall, the code demonstrates the use of const for variables that won't be reassigned and let for variables that can have their values changed.
+```
 
 ### 1\. Block Scope
 
