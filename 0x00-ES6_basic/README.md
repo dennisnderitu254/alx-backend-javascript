@@ -447,7 +447,7 @@ The resulting array is logged to the console using `console.log`.
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Condense the internals of the following function to 1 line - without changing the name of each function/variable.
 
@@ -492,6 +492,34 @@ bob@dylan:~$
 - File: `3-default-parameter.js`
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+
+**SOLUTION**
+
+```
+export default function getSumOfHoods(
+  initialNumber,
+  expansion1989 = 89,
+  expansion2019 = 19,
+) {
+  return initialNumber + expansion1989 + expansion2019;
+}
+```
+
+**CODE EXPLANATION**
+
+```
+The code exports a function named getSumOfHoods as the default export.
+This function takes three parameters: initialNumber, expansion1989, and expansion2019.
+
+Using ES6's default parameter values, the function parameters expansion1989 and expansion2019 are assigned default values of 89 and 19, respectively.
+This means that if the corresponding arguments are not provided when calling the function,
+the default values will be used instead.
+
+The function returns the sum of initialNumber, expansion1989, and expansion2019.
+
+By utilizing default parameter values,
+the code simplifies the logic of checking if the arguments are undefined and providing default values within the function body.
+```
 
 ### 4\. Rest parameter syntax for functions
 
@@ -540,6 +568,26 @@ bob@dylan:~$
 - File: `4-rest-parameter.js`
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+
+**SOLUTION**
+
+```
+export default function returnHowManyArguments(...args) {
+  return args.length;
+}
+```
+
+**CODE EXPLANATION**
+
+```
+The code exports a function named returnHowManyArguments as the default export.
+The function uses the rest parameter syntax ...args to gather all the arguments passed to it into an array called args.
+
+The function then returns the length of the args array, which represents the number of arguments passed to the function.
+
+By using the rest parameter, the function can accept any number of arguments,
+and the code simplifies the logic of counting the number of arguments by directly returning the length of the args array.
+```
 
 ### 5\. The wonders of spread syntax
 
