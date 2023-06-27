@@ -256,17 +256,25 @@ export function taskNext() {
 ```
 
 ```
-The given code demonstrates the usage of const and let keywords to declare variables in JavaScript. Here's a breakdown of the code:
+The given code demonstrates the usage of const and let keywords to declare variables in JavaScript.
+Here's a breakdown of the code:
 
 The code imports the functions taskFirst and taskNext from a module called './0-constants.js'.
 
-The console.log() statement prints the result of calling taskFirst() and taskNext() to the console. The result will be a combination of the strings returned by these functions.
+The console.log() statement prints the result of calling taskFirst() and taskNext() to the console.
+The result will be a combination of the strings returned by these functions.
 
-The taskFirst() function is declared using the export keyword, indicating that it can be imported and used in other modules. Inside this function, a constant variable named task is declared using the const keyword and assigned the value 'I prefer const when I can.'. The function then returns the value of task.
+The taskFirst() function is declared using the export keyword, indicating that it can be imported and used in other modules.
+Inside this function, a constant variable named task is declared using the const keyword and assigned the value 'I prefer const when I can.'.
+The function then returns the value of task.
 
 The getLast() function is also declared using the export keyword. It simply returns the string ' is okay'.
 
-The taskNext() function is declared using the export keyword as well. Inside this function, a variable named combination is declared using the let keyword. Initially, it is assigned the value 'But sometimes let'. The function then appends the result of calling getLast() to combination using the += operator. Finally, the function returns the value of combination.
+The taskNext() function is declared using the export keyword as well.
+Inside this function, a variable named combination is declared using the let keyword.
+Initially, it is assigned the value 'But sometimes let'.
+The function then appends the result of calling getLast() to combination using the += operator.
+Finally, the function returns the value of combination.
 
 Overall, the code demonstrates the use of const for variables that won't be reassigned and let for variables that can have their values changed.
 ```
