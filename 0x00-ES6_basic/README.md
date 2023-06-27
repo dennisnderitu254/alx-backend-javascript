@@ -630,6 +630,31 @@ bob@dylan:~$
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
 
+**SOLUTION**
+
+```
+export default function concatArrays(array1, array2, string) {
+  return [...array1, ...array2, ...string];
+}
+```
+
+**CODE EXPLANATION**
+
+```
+The code exports a function named concatArrays as the default export.
+The function takes three parameters: array1, array2, and string.
+
+Inside the function, the spread syntax ... is used to spread the elements of array1, array2, and string.
+The spread syntax allows us to expand arrays or strings into individual elements.
+
+By using the spread syntax, the function concatenates array1, array2, and each character of string into a single array.
+The resulting array contains all the elements from array1, array2, and the individual characters of string.
+
+The function then returns the concatenated array as the result.
+
+Using the spread syntax simplifies the concatenation process by spreading the elements of the arrays and string directly into a new array.
+```
+
 ### 6\. Take advantage of template literals
 
 mandatory
