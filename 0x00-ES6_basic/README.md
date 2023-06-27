@@ -659,7 +659,7 @@ Using the spread syntax simplifies the concatenation process by spreading the el
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Rewrite the return statement to use a template literal so you can the substitute the variables you've defined.
 
@@ -701,6 +701,32 @@ bob@dylan:~$
 - File: `6-string-interpolation.js`
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+
+**SOLUTION**
+
+```
+export default function getSanFranciscoDescription() {
+  const year = 2017;
+  const budget = {
+    income: '$119,868',
+    gdp: '$154.2 billion',
+    capita: '$178,479',
+  };
+  return `As of ${year}, it was the seventh-highest income county in the United States`
+    + `, with a per capita personal income of ${budget.income}. As of 2015, San Francisco`
+    + ` proper had a GDP of ${budget.gdp}, and a GDP per capita of ${budget.capita}.`;
+}
+```
+
+**CODE EXPLANATION**
+
+```
+The code imports the getSanFranciscoDescription function from the './6-string-interpolation.js' module.
+
+The console.log() statement is used to print the result of calling the getSanFranciscoDescription() function to the console.
+
+By importing and calling the function, the code executes the function and logs the resulting description of San Francisco to the console.
+```
 
 ### 7\. Object property value shorthand syntax
 
@@ -752,7 +778,7 @@ bob@dylan:~$
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Rewrite the `getBudgetForCurrentYear` function to use ES6 computed property names on the `budget` object
 
