@@ -593,7 +593,7 @@ and the code simplifies the logic of counting the number of arguments by directl
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Using spread syntax, concatenate 2 arrays and each character of a string by modifying the function below. Your function body should be one line long.
 
