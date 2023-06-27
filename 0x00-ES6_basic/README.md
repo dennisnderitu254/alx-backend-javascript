@@ -342,7 +342,7 @@ export default function taskBlock(trueOrFalse) {
 ```
 
 ```
-Certainly! Here's an explanation of the modified code:
+Code Breakdown:->
 
 1. The `taskBlock` function is exported as the default export. It takes a parameter `trueOrFalse`.
 
@@ -371,7 +371,7 @@ The returned array will contain the values of the variables based on the input p
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Rewrite the following standard function to use ES6's arrow syntax of the function `add` (it will be an anonymous function after)
 
