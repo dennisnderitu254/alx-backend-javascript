@@ -412,6 +412,37 @@ bob@dylan:~$
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
 
+**SOLUTION**
+
+```
+export default function getNeighborhoodsList() {
+  this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
+
+  const self = this;
+  this.addNeighborhood = (newNeighborhood) => {
+    self.sanFranciscoNeighborhoods.push(newNeighborhood);
+    return self.sanFranciscoNeighborhoods;
+  };
+}
+```
+
+```
+Explanation:
+
+The code provided defines a constructor function `getNeighborhoodsList` and adds a method `addNeighborhood` to its prototype.
+The function has been rewritten using ES6 arrow function syntax. Here's a breakdown of the changes:
+
+1. The `this.addNeighborhood` method is converted to an arrow function by replacing the `function` keyword with `=>`.
+This allows the function to inherit the `this` context lexically from its surrounding scope.
+
+2. Within the arrow function, `this.sanFranciscoNeighborhoods` , is accessed directly without the need for creating a separate reference to `this`.
+
+3. The `this.addNeighborhood` method now directly pushes the new neighborhood to `this.sanFranciscoNeighborhoods` and returns the updated array.
+
+The code imports the `getNeighborhoodsList` function from the `'./2-arrow.js'` module and creates a new instance of `getNeighborhoodsList` using the `new` keyword. It then calls the `addNeighborhood` method on the `neighborhoodsList` instance with the argument `'Noe Valley'`.
+The resulting array is logged to the console using `console.log`.
+```
+
 ### 3\. Parameter defaults
 
 mandatory
