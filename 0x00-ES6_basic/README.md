@@ -939,6 +939,51 @@ bob@dylan:~$
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
 
+**SOLUTION**
+
+```
+import getBudgetObject from './7-getBudgetObject';
+
+export default function getFullBudgetObject(income, gdp, capita) {
+  const budget = getBudgetObject(income, gdp, capita);
+  const fullBudget = {
+    ...budget,
+    getIncomeInDollars(income) {
+      return `$${income}`;
+    },
+    getIncomeInEuros(income) {
+      return `${income} euros`;
+    },
+  };
+  return fullBudget;
+}
+```
+
+**CODE IMPLEMENTATION**
+
+```
+To rewrite the getFullBudgetObject function to use ES6 method properties in the fullBudget object, you can use the shorthand method syntax.
+
+----------------------------------------------------------------
+import getBudgetObject from './7-getBudgetObject';
+
+export default function getFullBudgetObject(income, gdp, capita) {
+  const budget = getBudgetObject(income, gdp, capita);
+  const fullBudget = {
+    ...budget,
+    getIncomeInDollars(income) {
+      return `$${income}`;
+    },
+    getIncomeInEuros(income) {
+      return `${income} euros`;
+    },
+  };
+  return fullBudget;
+}
+-----------------------------------------------------------------
+In this version, the getIncomeInDollars and getIncomeInEuros methods are defined using the shorthand method syntax directly within the fullBudget object. The methods don't require the function keyword, and the parameter income is available within the method without needing to pass it explicitly.
+```
+
 ### 10\. For...of Loops
 
 mandatory
@@ -980,7 +1025,41 @@ bob@dylan:~$
 - Directory: `0x00-ES6_basic`
 - File: `10-loops.js`
 
- Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+
+**SOLUTION**
+
+```
+export default function appendToEachArrayValue(array, appendString) {
+  const res = [];
+  for (const value of array) {
+    res.push(appendString + array[array.indexOf(value)]);
+  }
+
+  return res;
+}
+```
+
+**CODE EXPLANATION**
+
+```
+To rewrite the appendToEachArrayValue function using ES6's for...of loop and avoiding the use of var, you can replace the for...in loop with a for...of loop.
+
+-------------------------------------------------------------------
+export default function appendToEachArrayValue(array, appendString) {
+  const res = [];
+  for (const value of array) {
+    res.push(appendString + value);
+  }
+
+  return res;
+}
+
+console.log(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'));
+-------------------------------------------------------------------
+
+In this version, the for...in loop is replaced with a for...of loop to iterate over the values of the array directly. The value variable represents the current element of the array in each iteration. The appendString is concatenated with value and pushed to the res array.
+```
 
 ### 11\. Iterator
 
