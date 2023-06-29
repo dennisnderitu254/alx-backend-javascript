@@ -94,7 +94,7 @@ Tasks
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Implement a class named `ClassRoom`:
 
@@ -136,22 +136,28 @@ export default class ClassRoom {
 **CODE EXPLANATION**
 
 ```
-The code you provided defines a JavaScript class called ClassRoom. It has a constructor that takes a parameter maxStudentsSize and assigns it to the instance property _maxStudentsSize. The _ prefix conventionally indicates that the property is intended to be private or internal.
+The code you provided defines a JavaScript class called ClassRoom.
+It has a constructor that takes a parameter maxStudentsSize and assigns it to the instance property _maxStudentsSize.
+The _ prefix conventionally indicates that the property is intended to be private or internal.
 
-In the next part of the code, an instance of the ClassRoom class is created using the new keyword and passing 10 as the maxStudentsSize argument. This instance is assigned to the room variable.
+In the next part of the code, an instance of the ClassRoom class is created using the new keyword and passing 10 as the maxStudentsSize argument.
+This instance is assigned to the room variable.
 
 Finally, console.log(room._maxStudentsSize) is called, attempting to log the value of the _maxStudentsSize property of the room object.
 
-However, it's important to note that JavaScript does not enforce strict encapsulation or privacy for object properties. The use of the underscore prefix is merely a convention to indicate that a property should be treated as private or internal. It is still possible to access and modify _maxStudentsSize directly from outside the class, although it goes against the intention of encapsulation.
+However, it's important to note that JavaScript does not enforce strict encapsulation or privacy for object properties.
+The use of the underscore prefix is merely a convention to indicate that a property should be treated as private or internal.
+It is still possible to access and modify _maxStudentsSize directly from outside the class, although it goes against the intention of encapsulation.
 
-In some JavaScript environments or linters, you might receive a warning or error about accessing a private property. However, in general, accessing _maxStudentsSize directly will work and log the value 10 in this case.
+In some JavaScript environments or linters, you might receive a warning or error about accessing a private property.
+However, in general, accessing _maxStudentsSize directly will work and log the value 10 in this case.
 ```
 
 ### 1\. Let's make some classrooms
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Import the `ClassRoom` class from `0-classroom.js`.
 
@@ -181,6 +187,40 @@ bob@dylan:~$
 - File: `1-make_classrooms.js`
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
+
+**CODE IMPLEMENTATION**
+
+```
+import ClassRoom from './0-classroom';
+
+export default function initializeRooms() {
+  return [new ClassRoom(19), new ClassRoom(20), new ClassRoom(34)];
+}
+```
+
+**CODE EXPLANATION**
+
+```
+
+Defining a JavaScript class ClassRoom with a constructor that takes a maxStudentsSize parameter and assigns it to the _maxStudentsSize property.
+
+Additionally, there is an exported function initializeRooms() that creates an array containing three instances of the ClassRoom class.
+Each instance is created with a different maxStudentsSize value.
+
+Finally, console.log(initializeRooms()) is called to log the result of invoking the initializeRooms() function, which is the array containing the three ClassRoom instances.
+
+When you run this code, it will output the array of ClassRoom instances as follows:
+
+----------------------------------------------------------------------------------
+[
+  ClassRoom { _maxStudentsSize: 19 },
+  ClassRoom { _maxStudentsSize: 20 },
+  ClassRoom { _maxStudentsSize: 34 }
+]
+----------------------------------------------------------------------------------
+
+Each element in the array represents an instance of the ClassRoom class, with the maxStudentsSize values of 19, 20, and 34 respectively.
+```
 
 ### 2\. A Course, Getters, and Setters
 
