@@ -1212,6 +1212,49 @@ bob@dylan:~$
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
 
+**CODE IMPLEMENTATION**
+
+```
+export default function createReportObject(employeesList) {
+  return {
+    allEmployees: { ...employeesList },
+    getNumberOfDepartments(employeesList) {
+      return Object.keys(employeesList).length;
+    },
+  };
+}
+```
+
+**CODE EXPLANATION**
+
+```
+The first function is createReportObject, which takes in an employeesList object as a parameter.
+It returns an object with two properties.
+The first property, allEmployees, is created by using the spread operator (...) to copy all the key-value pairs from the employeesList object into a new object.
+The second property, getNumberOfDepartments, is a method that takes in the employeesList object as a parameter and returns the number of departments by using Object.keys(employeesList).length to get the number of keys (departments) in the object.
+
+The second function is createEmployeesObject, takes a departmentName and an employees array as parameters and returns an object with the departmentName as the key and the employees array as the value.
+
+The code then creates an employees object by combining the results of calling createEmployeesObject with different department names and employee arrays using the spread operator (...).
+
+Next, the createReportObject function is called with the employees object as an argument, and the resulting object is assigned to the report variable.
+
+Finally, the code logs the allEmployees property of the report object to the console and also logs the result of calling the getNumberOfDepartments method on the report object.
+
+----------------------------------------------------------
+The expected output of this code would be:
+
+-------------------------------------------------------
+{ engineering: [ 'Bob', 'Jane' ], marketing: [ 'Sylvie' ] }
+2
+-------------------------------------------------------
+
+The first console.log(report.allEmployees) displays the allEmployees property, which contains the merged employees from different departments.
+
+The second console.log(report.getNumberOfDepartments(report.allEmployees)) displays the number of departments, which is 2 in this case.
+
+```
+
 ### 13\. Iterating through report objects
 
 # advanced
