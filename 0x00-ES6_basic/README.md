@@ -1459,7 +1459,8 @@ export default function iterateThroughObject(reportWithIterator) {
 
 ```
 
-createEmployeesObject: This function is the same as the one mentioned in the previous questions. It takes a departmentName and an employees array as parameters and returns an object with the departmentName as the key and the employees array as the value.
+createEmployeesObject: This function is the same as the one mentioned in the previous questions.
+It takes a departmentName and an employees array as parameters and returns an object with the departmentName as the key and the employees array as the value.
 
 createReportObject: This function is also the same as the previous version. It takes an employeesList object as a parameter and returns an object with two properties.
 The first property, allEmployees, is created by using the spread operator (...) to copy all the key-value pairs from the employeesList object into a new object.
