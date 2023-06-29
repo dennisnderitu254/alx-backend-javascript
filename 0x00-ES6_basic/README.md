@@ -1255,11 +1255,11 @@ The second console.log(report.getNumberOfDepartments(report.allEmployees)) displ
 
 ```
 
+## advanced
+
 ### 13\. Iterating through report objects
 
-# advanced
-
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Write a function named `createIteratorObject`, that will take into argument a report Object created with the previous function `createReportObject`.
 
@@ -1311,11 +1311,60 @@ bob@dylan:~$
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
 
+**CODE IMPLEMENTATION**
+
+```
+export default function createIteratorObject(report) {
+  const all = Object.values(report.allEmployees).reduce((a, b) => {
+    a.push(...b);
+    return a;
+  }, []);
+  let currIndex = 0;
+  const maxIndex = all.length;
+  return {
+    next() {
+      if (currIndex < maxIndex) {
+        const result = { value: all[currIndex], done: false };
+        currIndex += 1;
+        return result;
+      }
+      return { value: null, done: true };
+    },
+    [Symbol.iterator]: () => this.next(),
+  };
+}
+```
+
+**CODE EXPLANATION**
+
+```
+createEmployeesObject: This function is the same as the one mentioned in the previous questions.
+It takes a departmentName and an employees array as parameters and returns an object with the departmentName as the key and the employees array as the value.
+
+createReportObject: This function takes an employeesList object as a parameter and returns an object with two properties.
+The first property, allEmployees, is created by using the spread operator (...) to copy all the key-value pairs from the employeesList object into a new object.
+ The second property, getNumberOfDepartments, is a method that takes in the employeesList object as a parameter and returns the number of departments by using Object.keys(employeesList).length to get the number of keys (departments) in the object.
+
+createIteratorObject: This function takes a report object as a parameter.
+It extracts all the employee arrays from the report.allEmployees object using Object.values(report.allEmployees).
+It then flattens these arrays into a single array using the reduce method and the spread operator (...).
+The resulting array is stored in the all variable.
+
+The function also initializes two variables: currIndex (current index) set to 0 and maxIndex set to the length of the all array.
+
+The function returns an object with a next method, which is used to iterate over the employees in the all array.
+If the current index (currIndex) is less than the maximum index (maxIndex), the method returns an object with the value property set to the current employee and the done property set to false. The currIndex is then incremented.
+If the current index is equal to or exceeds the maximum index, the method returns an object with the value property set to null and the done property set to true, indicating that the iteration is complete.
+
+The [Symbol.iterator] property is set to a function that returns this.next(), enabling the iterator to be used in a for...of loop or with other iterable functions.
+
+```
+
 ### 14\. Iterate through object
 
 # advanced
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Finally, write a function named `iterateThroughObject`. The function's parameter `reportWithIterator` is the return value from `createIteratorObject`.
 
