@@ -252,6 +252,31 @@ export default function getResponseFromAPI() {
 }
 ```
 
+**CODE EXPLANATION**
+
+```
+Promises: Promises provide a way to handle asynchronous operations and represent their eventual completion or failure.
+ES6 introduced the Promise object, which has built-in methods such as then() and catch() for handling success and error cases.
+
+EXAMPLE
+----------------------------------
+function getDataFromAPI() {
+  return new Promise((resolve, reject) => {
+    // Asynchronous operation, e.g., API call
+    fetch('https://api.example.com/data')
+      .then(response => response.json())
+      .then(data => resolve(data))
+      .catch(error => reject(error));
+  });
+}
+
+// Usage:
+getDataFromAPI()
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+```
+
 ### 1\. Don't make a promise...if you know you can't keep it
 
 mandatory
