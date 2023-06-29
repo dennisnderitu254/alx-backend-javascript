@@ -243,6 +243,15 @@ bob@dylan:~$
 
  Done? Help Check your code Get a sandbox
 
+**CODE IMPLEMENTATION**
+
+```
+/* eslint-disable no-unused-vars */
+export default function getResponseFromAPI() {
+  return new Promise((resolve, reject) => { });
+}
+```
+
 ### 1\. Don't make a promise...if you know you can't keep it
 
 mandatory
