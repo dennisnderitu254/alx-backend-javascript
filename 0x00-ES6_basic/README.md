@@ -988,7 +988,7 @@ In this version, the getIncomeInDollars and getIncomeInEuros methods are defined
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Rewrite the function `appendToEachArrayValue` to use ES6's `for...of` operator. And don't forget that `var` is not ES6-friendly.
 
@@ -1065,7 +1065,7 @@ In this version, the for...in loop is replaced with a for...of loop to iterate o
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Write a function named `createEmployeesObject` that will receive two arguments:
 
@@ -1113,11 +1113,45 @@ bob@dylan:~$
 
  Done? Help Check your code Ask for a new correction Get a sandbox QA Review
 
+**CODE IMPLEMENTATION**
+
+```
+export default function createEmployeesObject(departmentName, employees) {
+  return {
+    [departmentName]: employees,
+  };
+}
+```
+
+**CODE EXPLANATION**
+
+```
+The given code defines a function called createEmployeesObject that takes in two parameters: departmentName and employees.
+It creates an object with the departmentName as the key and the employees array as the value.
+The departmentName parameter is used as a computed property name within square brackets to set the key dynamically.
+
+The function returns the created object.
+
+The code then calls the createEmployeesObject function with the arguments "Software" as the department name and ["Bob", "Sylvie"] as the employees array.
+The resulting object is then logged to the console using console.log().
+
+-------------------------------------------------------------
+The expected output of this code would be:
+----------------------------------------
+{ Software: [ 'Bob', 'Sylvie' ] }
+----------------------------------------
+-------------------------------------------------------------
+
+This code creates an object that represents a department with its associated employees.
+The department name is used as the key, and the employees are stored as an array value.
+
+```
+
 ### 12\. Let's create a report object
 
 mandatory
 
-Score: 0.00% (Checks completed: 0.00%)
+Score: 100.00% (Checks completed: 0.00%)
 
 Write a function named `createReportObject` whose parameter, `employeesList`, is the return value of the previous function `createEmployeesObject`.
 
