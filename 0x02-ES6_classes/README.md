@@ -293,7 +293,7 @@ Score: 0.00% (Checks completed: 0.00%)
 
 Implement a class named `Currency`:
 
-  - - Constructor attributes:
+- - Constructor attributes:
 - `code` (String)
 - `name` (String)
 - Each attribute must be stored in an "underscore" attribute version (ex: `name` is stored in `_name`)
