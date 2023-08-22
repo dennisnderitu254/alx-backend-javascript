@@ -171,6 +171,61 @@ module.exports = {
 
 Don't forget to run `$ npm install` when you have the `package.json`
 
+```
+In Node.js, synchronous and asynchronous are two different ways of executing code
+that involve handling tasks that may take time to complete,
+such as reading files, making network requests, or performing database operations.
+The key difference between them lies in how they handle blocking and non-blocking behavior:
+
+Synchronous Execution:
+
+In synchronous code execution:
+Each operation is executed one after the other in a sequential manner.
+When an operation is encountered that takes time to complete (e.g., reading a file),
+the entire program is blocked and waits for that operation to finish before moving on to the next line of code.
+Synchronous code can lead to reduced responsiveness,
+as the program is blocked and cannot perform other tasks during the waiting period.
+Asynchronous Execution:
+
+In asynchronous code execution:
+Tasks that take time to complete are initiated,
+and the program continues executing without waiting for the task to finish.
+When the task is completed, a callback function or a promise is used to handle the result.
+Asynchronous code allows the program to remain responsive and continue executing other
+tasks while waiting for slow operations to complete.
+Asynchronous code is suitable for tasks that may take an unpredictable amount of time,
+such as I/O operations and network requests.
+
+
+------Synchronous Example:-----
+
+const fs = require('fs');
+
+try {
+  const data = fs.readFileSync('file.txt', 'utf8');
+  console.log(data);
+} catch (error) {
+  console.error(error.message);
+}
+
+console.log('After reading file');
+
+------Asynchronous Example:----
+
+const fs = require('fs');
+
+fs.readFile('file.txt', 'utf8', (error, data) => {
+  if (error) {
+    console.error(error.message);
+  } else {
+    console.log(data);
+  }
+});
+
+console.log('After initiating asynchronous read');
+
+```
+
 Tasks
 -----
 
