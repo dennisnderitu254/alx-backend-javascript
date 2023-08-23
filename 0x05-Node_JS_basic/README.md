@@ -778,6 +778,41 @@ bob@dylan:~$
 -   Directory: `0x05-Node_JS_basic`
 -   File: `7-http_express.js`
 
+**----------CODE EXPLANATION-------------**
+
+1. `const express = require('express');`
+
+- Import the express module to use the Express framework.
+
+
+2. `const { argv } = require('process');`
+
+- Import the argv object from the process module to access command-line arguments.
+
+3. `const fs = require('fs');`
+
+- Import the fs module to work with the file system and read the CSV file.
+
+4. Create an instance of the Express application using `const app = express();`.
+
+5. Define a route for the root URL `'/'`  using `app.get('/', (req, res) => { ... });`:
+
+- Set the `Content-Type` header to `'text/plain'`.
+- Send the response body with the message "Hello Holberton School!".
+
+6. Define a route for the `'/students'` URL using `app.get('/students', (req, res) => { ... });`:
+
+- Set the `Content-Type` header to `'text/plain'`.
+- Write the introductory message to the response.
+- Use `fs.readFile` to asynchronously read the CSV file specified in the command-line arguments (`argv[2]`).
+- Inside the file reading callback, process the data similar to the previous versions.
+- Write the calculated results to the response.
+- End the response with `res.end()`.
+
+7. Start the Express application by calling `app.listen(1245);`.
+8. Export the app instance using `module.exports = app`;
+
+This code demonstrates using Express to handle HTTP requests for specific routes (`'/'` and `'/students'`). It reads the CSV file specified as a command-line argument, processes the data, and sends the results as a response to the `/students` route.
 
 ### 8. Organize a complex HTTP server using Express
 
