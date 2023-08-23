@@ -290,7 +290,39 @@ bob@dylan:~$
 -   Directory: `0x05-Node_JS_basic`
 -   File: `1-stdin.js`
 
- Done? Help Check your code Get a sandbox
+Done? Help Check your code Get a sandbox
+
+```
+CODE EXPLANATION
+
+This code presents a simple interaction with the user in the command line using the process.stdin and process.stdout streams.
+
+1. process.stdout.write('Welcome to Holberton School, what is your name?\n');
+This line writes the given text to the standard output (console), prompting the user to input their name.
+
+2. process.stdin.on('readable', () => { ... });
+This part sets up an event listener for the readable event on the standard input (process.stdin). This event fires when there is data available to be read from the input stream.
+
+3. Inside the event listener:
+
+a. const chunk = process.stdin.read();
+This line reads the data that is available to be read from the standard input stream.
+
+b. if (chunk !== null) { ... }
+This condition checks if data (chunk) has been read. If it's not null, the following code block executes.
+
+c. process.stdout.write(Your name is: ${chunk});
+This line writes the user's input (the read data) along with the message "Your name is: " to the standard output.
+
+4. process.stdin.on('end', () => { ... });
+
+This part sets up an event listener for the end event on the standard input stream. This event fires when there is no more data to be read from the input stream.
+
+5. Inside the end event listener:
+process.stdout.write('This important software is now closing\n');
+
+This line writes a closing message to the standard output, indicating that the program is closing.
+```
 
 ### 2\. Reading a file synchronously with Node JS
 
@@ -337,6 +369,32 @@ bob@dylan:~$
 -   GitHub repository: `alx-backend-javascript`
 -   Directory: `0x05-Node_JS_basic`
 -   File: `2-read_file.js`
+
+```
+CODE EXPLANATION
+
+1. Read the content of the CSV file specified by the path parameter using fs.readFileSync.
+
+2. Split the content into lines using data.split('\n') and then split each line intoindividual data elements using , as the delimiter. The result is stored in the result array.
+
+3. Remove the header line (containing column names) using result.shift().
+
+4. Create a new array named newis that contains only the first and fourth elements from each sub-array in result,
+which corresponds to the first name and field of study.
+
+5.Create a Set named fields to store unique field of study values.
+6.Iterate through the newis array to populate the fields set with unique field values.
+
+7. Create an empty object named final to store the final count of students in each field of study.
+
+8. Iterate through the unique field values in the fields set. For each field, initialize the count to 0 in the final object.
+
+9. Iterate through the newis array and increment the count for each field of study in the final object.
+
+10. Print the total number of students in the dataset by filtering out rows with fewer than 4 elements (presumably excluding incomplete or erroneous data).
+
+11. For each field of study in the final object, print the number of students, list their names, and the field they belong to.
+```
 
  Done? Help Check your code Get a sandbox
 
