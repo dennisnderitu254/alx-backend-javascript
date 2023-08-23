@@ -812,7 +812,7 @@ bob@dylan:~$
 7. Start the Express application by calling `app.listen(1245);`.
 8. Export the app instance using `module.exports = app`;
 
-This code demonstrates using Express to handle HTTP requests for specific routes (`'/'` and `'/students'`). It reads the CSV file specified as a command-line argument, processes the data, and sends the results as a response to the `/students` route.
+- This code demonstrates using Express to handle HTTP requests for specific routes (`'/'` and `'/students'`). It reads the CSV file specified as a command-line argument, processes the data, and sends the results as a response to the `/students` route.
 
 ### 8. Organize a complex HTTP server using Express
 
