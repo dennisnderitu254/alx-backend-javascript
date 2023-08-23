@@ -646,6 +646,21 @@ bob@dylan:~$
 
  Done? Help Check your code Get a sandbox
 
+
+**----------CODE EXPLANATION -------------**
+
+1. The `countStudents` function remains mostly the same, but instead of using `console.log`, it writes the output to the provided `stream` object. This means that the output will be sent as part of the HTTP response.
+
+2. Inside the HTTP server's request handler (`const app = http.createServer((req, res) => { ... });`), there are two main branches based on the requested URL (`url`):
+
+- a. If the URL is `/`, the server responds with "Hello Holberton School!".
+
+- b. If the URL is `/students`, the server responds with "This is the list of our students\n". It then attempts to call the `countStudents` function with the path to the database file provided as a command-line argument (`argv[2]`). The function's output is directed to the response stream (`res`) to be sent as part of the response. If an error occurs during this process, the error message is sent as the response.
+
+3. The server is started using `app.listen(port, hostname);`
+
+- Overall, this code creates an HTTP server that responds to two different routes: one with a simple greeting message and another by processing data from the provided database file and sending the results as the response.
+
 ### 6\. Create a small HTTP server using Express
 
 mandatory
