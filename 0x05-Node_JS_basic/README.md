@@ -462,6 +462,67 @@ bob@dylan:~$
 
  Done? Help Check your code Get a sandbox
 
+```
+CODE EXPLANATION
+
+1. The function now uses the async keyword to indicate that it's an asynchronous function.
+
+2. Inside the function, you check if the file exists using fs.existsSync(path).
+If the file does exist, you return a promise.
+
+3. Within the promise, you use fs.readFile to read the file asynchronously.
+The callback function passed to fs.readFile handles the file reading process.
+
+4.Inside the callback function:
+
+  a. If there's an error (err) while reading the file, an error is thrown with the message 'Cannot load the database'.
+
+  b. If the file is read successfully, you proceed with processing the data similar to the previous version.
+
+5. The final processed data and results are logged to the console, just like in the previous version.
+
+6. You're using the resolve function to fulfill the promise. You are passing result, final, and newis as arguments to resolve, but this usage is a bit unusual. Usually, promises return a single value.
+
+7. The entire function is encapsulated in a promise and returns this promise.
+
+```
+
+```
+PROMISES IN JAVASCRIPT
+
+A Promise in JavaScript is an asynchronous programming concept that represents a value that might be available now,
+or in the future, or never.
+Promises provide a clean way to handle asynchronous operations such as reading files,
+making network requests, and other time-consuming tasks without blocking the main execution thread.
+Promises improve the readability and maintainability of asynchronous code by providing a structured way to handle success and failure cases.
+
+Promises have three possible states:
+
+1. Pending: The initial state. The promise is neither fulfilled nor rejected.
+
+2. Fulfilled (Resolved): The state when the asynchronous operation is completed successfully. In this state, the promise has a value associated with it.
+
+3. Rejected: The state when the asynchronous operation fails. In this state, the promise has a reason (error) associated with it.
+
+------ How Promises Work Step By Step -----
+
+1. You create a new Promise instance, providing a function with two arguments: resolve and reject.
+Inside this function, you perform your asynchronous operation, and when it's done,
+you call either resolve(result) to fulfill the promise or reject(error) to reject it.
+
+2. You attach callbacks using the .then() method to handle the successful resolution of the promise.
+The callback inside .then() will be executed with the resolved value as an argument.
+
+3. You can also attach a .catch() method to handle errors. If the promise is rejected,
+the callback inside .catch() will be executed with the error as an argument.
+
+Promises help to manage the flow of asynchronous code, making it more readable and maintainable.
+However, they can become quite nested when dealing with multiple asynchronous operations.
+To mitigate this, modern JavaScript includes the concept of async/await,
+which provides a more synchronous-like syntax for working with asynchronous operations and promises.
+
+```
+
 ### 4\. Create a small HTTP server using Node's HTTP module
 
 mandatory
