@@ -710,6 +710,35 @@ bob@dylan:~$
 
  Done? Help Check your code Get a sandbox
 
+**------------CODE EXPLANATION ----------------**
+
+- Express.js is a popular web application framework for Node.js that simplifies the process of creating APIs and handling HTTP requests and responses.
+
+
+1. `const express = require('express');`
+
+- This line imports the express module, which provides the functionality to create a web server and handle HTTP requests.
+
+2. `const app = express();`
+
+- This creates an instance of the Express application.
+
+3. `app.get('/', (req, res) => { ... });`
+
+- This defines a route for the root URL `'/'`using the HTTP GET method.
+- When a GET request is made to the root URL, the callback function `(req, res) => { ... }` is executed.
+- Inside the callback function, `res.send('Hello Holberton School!');` sends the specified text as the response body.
+
+4. `app.listen(1245);`
+
+- This starts the Express application and makes it listen on port 1245 for incoming HTTP requests.
+
+5. `module.exports = app;`
+
+- This exports the app instance so that it can be used or tested in other parts of your code.
+
+- This code creates a basic Express web server that responds with the message "Hello Holberton School!" when accessed through the root URL. It demonstrates the simplicity of creating routes and handling responses using Express.js.
+
 ### 7\. Create a more complex HTTP server using Express
 
 mandatory
