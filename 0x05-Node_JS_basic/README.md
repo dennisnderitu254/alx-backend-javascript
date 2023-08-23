@@ -649,17 +649,20 @@ bob@dylan:~$
 
 **----------CODE EXPLANATION -------------**
 
-1. The `countStudents` function remains mostly the same, but instead of using `console.log`, it writes the output to the provided `stream` object. This means that the output will be sent as part of the HTTP response.
+1. The `countStudents` function now accepts an additional parameter `stream`, which represents the response stream. This parameter allows you to write the results directly to the HTTP response.
 
-2. Inside the HTTP server's request handler (`const app = http.createServer((req, res) => { ... });`), there are two main branches based on the requested URL (`url`):
+2. Inside the `countStudents` function, you've made some modifications to the way you write the results to the `stream`. The results are written directly to the response stream using `stream.write()`.
 
-- a. If the URL is `/`, the server responds with "Hello Holberton School!".
+3. Inside the HTTP server callback function `(req, res) => { ... }:`
+a. If the URL is `'/'`, it responds with the message "Hello Holberton School!".
+b. If the URL is `'/students'`, it responds with "This is the list of our students" and then calls the `countStudents` function to process the CSV file and write the results to the response stream. If an error occurs during processing, the error message is written to the response.
 
-- b. If the URL is `/students`, the server responds with "This is the list of our students\n". It then attempts to call the `countStudents` function with the path to the database file provided as a command-line argument (`argv[2]`). The function's output is directed to the response stream (`res`) to be sent as part of the response. If an error occurs during this process, the error message is sent as the response.
+4. The server listens on the specified port and hostname using `app.listen(port, hostname);`
 
-3. The server is started using `app.listen(port, hostname);`
+5. The `module.exports = app;` statement at the end exports the `app` instance so that it can be used or tested in other parts of your code.
 
-- Overall, this code creates an HTTP server that responds to two different routes: one with a simple greeting message and another by processing data from the provided database file and sending the results as the response.
+
+- This updated version of the code continues to demonstrate creating an HTTP server, but now it has different behavior for different URLs. When accessing the root URL `'/'`, it provides a simple greeting message. When accessing the `'/students'` URL, it processes the CSV file and provides information about the students and their fields of study.
 
 ### 6\. Create a small HTTP server using Express
 
