@@ -561,6 +561,47 @@ bob@dylan:~$
 
  Done? Help Check your code Get a sandbox
 
+
+**---------- CODE EXPLANATION --------------**
+
+1. `const http = require('http');`
+
+- This line imports the built-in http module, which allows you to create HTTP servers and handle HTTP requests and responses.
+
+2. `const hostname = 'localhost';`
+
+This sets the hostname to 'localhost', which means the server will bind to the local machine.
+
+3. `const port = 1245;`
+
+This sets the port number to 1245 that the server will listen on.
+
+4. `const app = http.createServer((req, res) => { ... });`
+
+This line creates an HTTP server using the `createServer` method of the `http` module. The callback function `(req, res) => { ... }` is called whenever a request is made to the server.
+
+5. Inside the request handler callback function:
+a. `res.statusCode = 200;`
+Sets the HTTP status code of the response to 200 (OK).
+
+b. `res.setHeader('Content-Type', 'text/plain');`
+Sets the Content-Type header of the response to 'text/plain', indicating that the response will contain plain text.
+
+c. `res.end('Hello Holberton School!');`
+Writes the provided text as the response body and closes the response stream.
+
+6. `app.listen(port, hostname, () => { ... });`
+
+This line starts the server and makes it listen for incoming requests on the specified `port` and `hostname`. The callback function is executed when the server starts listening.
+
+7. Inside the server start callback:
+
+Logs a message indicating that the server is running, including the URL.
+
+8. `module.exports = app;`
+
+Exports the `app` (HTTP server) instance so that it can be used or tested in other parts of your code.
+
 ### 5\. Create a more complex HTTP server using Node's HTTP module
 
 mandatory
