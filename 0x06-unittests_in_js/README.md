@@ -126,6 +126,95 @@ bob@dylan:~$
 
  Done? Help Check your code Get a sandbox
 
+**----------CODE EXPLANATION ----------------**
+
+**package.json**
+```
+{
+    "name": "0x06-unittests_in_js",
+    "version": "1.0.0",
+    "description": "unit tests in js introduction ",
+    "main": "0-calcul.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dennisnderitu254/alx-backend-javascript"
+    },
+    "keywords": [
+        "unittest",
+        "nodejs",
+        "es6",
+        "express",
+        "mocha"
+    ],
+    "author": "dennisnderitu254",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.3.6",
+        "eslint": "^8.7.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-mocha": "^10.0.3",
+        "mocha": "^9.2.2",
+        "sinon": "^12.0.1"
+    },
+    "bugs": {
+        "url": "https://github.com/dennisnderitu254/alx-backend-javascript/issues"
+    },
+    "homepage": "https://github.com/dennisnderitu254/alx-backend-javascript#readme"
+}
+```
+
+**0-calcul.js**
+```
+function calculateNumber(a, b){
+    return Math.round(a) + Math.round(b);
+}
+
+module.exports = calculateNumber;
+```
+
+**0-calcul.test.js**
+```
+const assert = require('assert');
+const {it, describe} = require('mocha');
+const calculateNumber = require('./0-calcul')
+
+describe('calculateNumber', () => {
+    it('checking if number round', () => {
+        assert.equal(calculateNumber(1, 3), 4);
+    });
+    it('chacking if numbers round 2nd round', () => {
+        assert.equal(calculateNumber(1, 3.7), 5);
+    });
+    it('checking if numbers round 3rd round', () => {
+        assert.equal(calculateNumber(1.2, 3.7), 5);
+    });
+    it('checking if numbers round 4th round', () => {
+        assert.equal(calculateNumber(1.5, 3.7), 6);
+    });
+    it('chacking negative return', () => {
+        assert.equal(calculateNumber(-1.3, -3.7), -5);
+    });
+});
+```
+
+In this Code implementation, the function `0-calcul.js`, calculates the sun of two numbers, that have been rounded off.
+
+
+- `Mocha` is an open source JavaScript testing framework that runs on Node.js and in the browser. It’s designed for testing both synchronous and asynchronous code with a very simple interface.
+
+- `Mocha` runs tests serially to deliver flexible and accurate reporting while mapping uncaught exceptions to their corresponding test cases. Mocha provides functions that execute in a specific order, logging the results in the terminal window. Mocha also cleans the state of the software being tested to ensure that test cases run independently of each other.
+
+- `Mocha` is commonly used with `Chai`, a popular assertion library for Node.js and the browser
+
+- Writing tests often requires using an `assertion library`. An `assertion` is a feature used to verify that the result from a programming operation matches the expected result. Mocha does not discriminate, regardless of which assertion library you choose to use.
+
+- If you’re using `Mocha` in a Node.js environment, you can use the built-in assert module as your assertion library. However, there are more extensive assertion libraries you can use as well, like `Chai, Expect.js, Should.js`, and more.
+
+
 ### 1\. Combining descriptions
 
 mandatory
