@@ -586,6 +586,44 @@ Stubs are similar to spies. Except that you can provide a different implementati
 
  Done? Help Check your code Get a sandbox
 
+**----------------CODE IMPLIMENTATION----------------------**
+
+`4-payment.js`
+
+```
+const Utils = require('./utils');
+
+function sendPaymentRequestToApi(totalAmount, totalShipping) {
+  console.log(`The total is: ${Utils.calculateNumber('SUM', totalAmount, totalShipping)}`);
+}
+
+module.exports = sendPaymentRequestToApi;
+```
+
+`4-payment.test.js`
+
+```
+const { expect } = require('chai');
+const { it, describe } = require('mocha');
+const sinon = require('sinon');
+
+const Utils = require('./utils.js');
+const sendPaymentRequestToApi = require('./4-payment.js');
+
+describe('', () => {
+  const checkSoy = sinon.spy(console, 'log');
+  it('checking if numbers round with spies and stubs', () => {
+    sendPaymentRequestToApi(100, 20);
+    const stubBoy = sinon.stub(Utils, 'calculateNumber');
+    stubBoy.withArgs('SUM', 100, 20).returns(120);
+    expect(checkSoy.calledOnce).to.be.true;
+    expect(console.log('The total is: 120')).to.be.all;
+    checkSoy.restore();
+    stubBoy.restore();
+  });
+});
+```
+
 ### 5\. Hooks
 
 mandatory
