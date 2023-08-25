@@ -17,7 +17,7 @@
         "express",
         "mocha"
     ],
-    "author": "Pericles001",
+    "author": "dennisnderitu254",
     "license": "ISC",
     "devDependencies": {
         "chai": "^4.3.6",
