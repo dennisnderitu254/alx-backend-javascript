@@ -657,6 +657,75 @@ Hooks are useful functions that can be called before execute one or all tests in
 
  Done? Help Check your code Get a sandbox
 
+**------------------CODE IMPLEMENTATION-------------------**
+
+`utils.js`
+
+```
+const Utils = {
+    calculateNumber: function calculateNumber(type, a, b) {
+      if (type === 'SUM') {
+        return Math.round(a) + Math.round(b);
+      }
+      if (type === 'SUBTRACT') {
+        return Math.round(a) - Math.round(b);
+      }
+      if (type === 'DIVIDE') {
+        if (Math.round(b) === 0) {
+          return 'Error';
+        }
+        return Math.round(a) / Math.round(b);
+      }
+      return 0;
+    },
+  };
+
+  module.exports = Utils;
+```
+
+`5-payment.js`
+
+```
+const Utils = require('./utils');
+
+function sendPaymentRequestToApi(totalAmount, totalShipping) {
+  console.log(`The total is: ${Utils.calculateNumber('SUM', totalAmount, totalShipping)}`);
+}
+
+module.exports = sendPaymentRequestToApi;
+```
+
+`5-payment.test.js`
+
+```
+const { expect } = require('chai');
+const { it, describe } = require('mocha');
+const sinon = require('sinon');
+
+const Utils = require('./utils.js');
+const sendPaymentRequestToApi = require('./5-payment.js');
+
+describe('', () => {
+  let spyBoy;
+  beforeEach(() => {
+    spyBoy = sinon.spy(console, 'log');
+  });
+  afterEach(() => {
+    sinon.restore();
+  });
+  it('checking if numbers round with spies and stubs 1st', () => {
+    sendPaymentRequestToApi(100, 20);
+    expect(spyBoy.calledOnce).to.be.true;
+    expect(spyBoy.calledWith('The total is: 120')).to.be.true;
+  });
+  it('checking if numbers round with spies and stubs 2nd', () => {
+    sendPaymentRequestToApi(10, 10);
+    expect(spyBoy.calledOnce).to.be.true;
+    expect(spyBoy.calledWith('The total is: 20')).to.be.true;
+  });
+});
+```
+
 ### 6\. Async tests with done
 
 mandatory
