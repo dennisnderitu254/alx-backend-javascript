@@ -761,6 +761,51 @@ Look into how to support async testing, for example when waiting for the answer 
 
  Done? Help Check your code Get a sandbox
 
+**--------------CODE IMPLEMENTATION-----------------**
+
+`6-payment_token.js`
+
+```
+function getPaymentTokenFromAPI (success) {
+    return new Promise(function (resolve) {
+      if (success) {
+        resolve({ data: 'Successful response from the API' });
+      }
+    });
+}
+
+module.exports = getPaymentTokenFromAPI;
+```
+
+`6-payment_token.test.js`
+
+```
+const chai = require('chai');
+const expect = chai.expect;
+
+const getPaymentTokenFromAPI = require('./6-payment_token');
+
+describe('getPaymentTokenFromAPI', () => {
+  it('should return an instance of a Promise', () => {
+    const res = getPaymentTokenFromAPI();
+    expect(res).to.be.an.instanceof(Promise);
+  });
+  it("should return a JSON data object {data: 'Successful response from the API'", () => {
+    getPaymentTokenFromAPI(true)
+      .then((res) => {
+        expect(res.data).to.be.equal('Successful response from the API');
+        done();
+      });
+  });
+  it('should do nothing when not success', () => {
+    getPaymentTokenFromAPI(false)
+      .then((res) => {
+        expect(res).to.equal('');
+      });
+  });
+});
+```
+
 ### 7\. Skip
 
 mandatory
@@ -829,6 +874,48 @@ describe('Testing numbers', () => {
 -   File: `7-skip.test.js`
 
  Done? Help Check your code Get a sandbox
+
+**---------------CODE IMPLEMENTATION--------------------**
+
+`7-skip.test.js`
+
+```
+const { expect } = require('chai');
+
+describe('Testing numbers', () => {
+  it('1 is equal to 1', () => {
+    expect(1 === 1).to.be.true;
+  });
+
+  it('2 is equal to 2', () => {
+    expect(2 === 2).to.be.true;
+  });
+
+  it.skip('1 is equal to 3', () => {
+    expect(1 === 3).to.be.true;
+  });
+
+  it('3 is equal to 3', () => {
+    expect(3 === 3).to.be.true;
+  });
+
+  it('4 is equal to 4', () => {
+    expect(4 === 4).to.be.true;
+  });
+
+  it('5 is equal to 5', () => {
+    expect(5 === 5).to.be.true;
+  });
+
+  it('6 is equal to 6', () => {
+    expect(6 === 6).to.be.true;
+  });
+
+  it('7 is equal to 7', () => {
+    expect(7 === 7).to.be.true;
+  });
+});
+```
 
 ### 8\. Basic Integration testing
 
