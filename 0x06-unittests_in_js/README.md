@@ -491,6 +491,66 @@ Spies are a useful wrapper that will execute the wrapped function, and log usefu
 
  Done? Help Check your code Get a sandbox
 
+**---------------CODE IMPLIMENTATION-------------------**
+
+`utils.js`
+
+```
+const Utils = {
+    calculateNumber: function calculateNumber(type, a, b) {
+      if (type === 'SUM') {
+        return Math.round(a) + Math.round(b);
+      }
+      if (type === 'SUBTRACT') {
+        return Math.round(a) - Math.round(b);
+      }
+      if (type === 'DIVIDE') {
+        if (Math.round(b) === 0) {
+          return 'Error';
+        }
+        return Math.round(a) / Math.round(b);
+      }
+      return 0;
+    },
+  };
+
+  module.exports = Utils;
+```
+
+
+`3-payment.js`
+
+```
+const Utils = require('./utils');
+
+function sendPaymentRequestToApi(totalAmount, totalShipping) {
+  console.log(`The total is: ${Utils.calculateNumber('SUM', totalAmount, totalShipping)}`);
+}
+
+module.exports = sendPaymentRequestToApi;
+```
+
+`3-payment.test.js`
+
+```
+const { expect } = require('chai');
+const { it, describe } = require('mocha');
+const sinon = require('sinon');
+
+const Utils = require('./utils.js');
+const sendPaymentRequestToApi = require('./3-payment.js');
+
+describe('', () => {
+  it('checking if numbers round with spies', () => {
+    const checkSoy = sinon.spy(Utils, 'calculateNumber');
+    sendPaymentRequestToApi(1, 3);
+    expect(checkSoy.calledOnce).to.be.true;
+    expect(checkSoy.calledWith('SUM', 1, 3)).to.be.true;
+    checkSoy.restore();
+  });
+});
+```
+
 ### 4\. Stubs
 
 mandatory
